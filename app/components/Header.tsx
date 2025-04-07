@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Header() {
     return (
             <div className="relative w-[500px] h-[250px]">
@@ -21,10 +23,12 @@ export default function Header() {
               </svg>
         
               {/* Center Image */}
-              <img
+              <Image
                 src="/vibe-code-logo.png"
                 alt="Vibe Code Logo"
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 rounded-full border-4 border-white shadow-xl"
+                width={144}
+                height={144}
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-white shadow-xl"
               />
             </div>
         )

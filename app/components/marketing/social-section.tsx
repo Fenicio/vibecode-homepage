@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Twitter, Github, BookOpen } from 'lucide-react';
+import { Twitter, BookOpen } from 'lucide-react';
 
 interface VibeCodingFigure {
   name: string;
