@@ -4,24 +4,64 @@ import Link from 'next/link';
 const tools = [
   {
     name: 'ChatGPT',
-    description: 'AI coding assistant',
+    description: 'AI coding assistant for natural language programming',
     icon: '/chatgpt.svg',
   },
   {
     name: 'Cursor',
-    description: 'Code editor with built-in AI',
+    description: 'Code editor with native GitHub Copilot integration and AI chat',
     icon: '/cursor.svg',
   },
   {
+    name: 'Windsor',
+    description: 'AI-powered web development with visual editing',
+    icon: '/windsor.svg',
+  },
+  {
     name: 'Replit',
-    description: 'Collaborative online IDE',
+    description: 'Browser-based IDE with GhostWriter AI assistance',
     icon: '/replit.svg',
   },
   {
+    name: 'GitHub Copilot',
+    description: 'AI pair programmer with code suggestions',
+    icon: '/github-copilot.svg',
+  },
+  {
+    name: 'Codeium',
+    description: 'AI code completion and assistance',
+    icon: '/codeium.svg',
+  },
+  {
     name: 'Vercel',
-    description: 'Front-end deployment platform',
+    description: 'Front-end deployment platform with instant updates',
     icon: '/vercel.svg',
   },
+  {
+    name: 'GitHub Desktop',
+    description: 'Simplified version control interface',
+    icon: '/github-desktop.svg',
+  },
+  {
+    name: 'Figma',
+    description: 'UI design and prototyping platform',
+    icon: '/figma.svg',
+  },
+  {
+    name: 'Webflow',
+    description: 'Visual web development platform',
+    icon: '/webflow.svg',
+  },
+  {
+    name: 'Notion',
+    description: 'Documentation and workspace organization',
+    icon: '/notion.svg',
+  },
+  {
+    name: 'Obsidian',
+    description: 'Knowledge management and documentation',
+    icon: '/obsidian.svg',
+  }
 ];
 
 export function ToolsSection() {
@@ -49,12 +89,6 @@ export function ToolsSection() {
           </div>
         ))}
       </div>
-      <Link 
-        href="/tools"
-        className="text-blue-600 dark:text-blue-400 hover:underline"
-      >
-        Explore Tools →
-      </Link>
     </section>
   );
 }
