@@ -1,7 +1,7 @@
 import Header from './components/Header';
 import { WhatIsVibeCoding } from './components/marketing/what-is-vibe-coding';
 import { QuickStart } from './components/marketing/quick-start';
-import { ToolsSection } from './components/marketing/tools-section';
+import ToolsSection from './components/marketing/tools-section';
 import { ArticlesSection } from './components/marketing/articles-section';
 import { GlossarySection } from './components/marketing/glossary-section';
 import { SocialSection } from './components/marketing/social-section';
