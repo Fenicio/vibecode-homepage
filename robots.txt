@@ -1,0 +1,6 @@
+# robots.txt for vibecode-homepage
+User-agent: *
+Disallow:
+
+# Allow all crawlers access to everything
+Sitemap: /sitemap.xml

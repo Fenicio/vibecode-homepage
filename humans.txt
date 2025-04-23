@@ -1,0 +1,10 @@
+/* TEAM */
+Developer: Guillermo Garcia Castillo
+Site: https://www.guiom.dev
+Contact: admin@guiom.dev
+
+/* THANKS */
+Thanks to all contributors and users!
+
+/* SITE */
+Last update: 2025-04-23
