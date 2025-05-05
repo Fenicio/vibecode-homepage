@@ -26,6 +26,9 @@ export default function Home() {
           <SuccessStories />
         </div>
       </main>
+    <footer className="w-full py-6 text-center text-sm text-gray-500 dark:text-gray-400 mt-12">
+      made by <a href="https://www.guiom.dev" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600 dark:hover:text-blue-400">Guiom</a> with love and tons of impostor syndrome
+    </footer>
     </div>
   );
 }
