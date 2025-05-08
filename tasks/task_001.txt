@@ -1,0 +1,11 @@
+# Task ID: 1
+# Title: Setup Next.js Project with TypeScript and Tailwind CSS
+# Status: done
+# Dependencies: None
+# Priority: high
+# Description: Initialize a new Next.js project with TypeScript and Tailwind CSS for styling, following the latest best practices.
+# Details:
+Run `npx create-next-app@latest --typescript`, install Tailwind CSS and configure it. Set up basic project structure and linting. Ensure mobile-responsive design is enabled by default.
+
+# Test Strategy:
+Verify project runs locally, TypeScript compiles without errors, and Tailwind classes render correctly on mobile and desktop.

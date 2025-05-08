@@ -1,0 +1,11 @@
+# Task ID: 7
+# Title: Develop Comment System
+# Status: pending
+# Dependencies: 1, 2, 3, 4, 5
+# Priority: medium
+# Description: Implement threaded comments for success stories with user attribution.
+# Details:
+Create API endpoints for comment CRUD. Build frontend components for displaying and replying to comments. Ensure proper authorization and user attribution.
+
+# Test Strategy:
+Test comment creation, editing, and deletion. Verify user attribution and thread display.

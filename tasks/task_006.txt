@@ -1,0 +1,11 @@
+# Task ID: 6
+# Title: Implement Tool Directory
+# Status: pending
+# Dependencies: 1, 2, 3, 4
+# Priority: medium
+# Description: Develop a searchable, filterable tool directory with CRUD operations.
+# Details:
+Create API endpoints for tool management. Build frontend pages for browsing, searching, and filtering tools. Allow linking tools to stories.
+
+# Test Strategy:
+Test tool creation, search, and filtering. Verify tool linking to stories.

@@ -1,0 +1,13 @@
+# Task ID: 3
+# Title: Implement NextAuth.js Authentication
+# Status: pending
+# Dependencies: 1, 2
+# Priority: high
+# Description: Integrate NextAuth.js for user authentication, supporting OAuth providers and custom credentials.
+# Details:
+Install NextAuth.js, configure providers (e.g., Google, GitHub), and set up custom credentials for email/password login. Implement user registration and login flows. Store user data in PostgreSQL via Prisma.
+
+# Test Strategy:
+Test user registration, login, and logout. Verify OAuth provider integration and session management.
+
+# User log

@@ -1,0 +1,218 @@
+# Vibe Coding Platform PRD
+
+## Overview
+Howtovibe.dev is a community-driven platform for developers to share their coding successes, discover valuable tools, and learn together. It addresses the need for a dedicated space where developers can celebrate achievements, learn from others' experiences, and build connections within a supportive community.
+
+Target users include developers at all experience levels who want to share their wins, learn from peers, and discover new tools and resources. The platform provides value by creating a positive environment focused on success stories rather than just problems or questions.
+
+## Core Features
+
+### Success Stories
+- **What it does**: Allows users to create, share, and read coding success stories in markdown format
+- **Why it's important**: Provides a platform for celebrating wins and learning from others' experiences
+- **How it works**: Users can create rich content stories with markdown, link related tools, and tag relevant technologies
+
+### User Profiles
+- **What it does**: Provides personalized spaces for users to showcase their experience and stories
+- **Why it's important**: Builds community identity and credibility
+- **How it works**: Custom user profiles with bio, experience level, and avatar
+
+### Tools Directory
+- **What it does**: Curated collection of development tools with descriptions and categorization
+- **Why it's important**: Helps developers discover new tools that can improve their workflow
+- **How it works**: Searchable, filterable database of tools that can be linked to success stories
+
+### Community Comments
+- **What it does**: Enables discussion on success stories
+- **Why it's important**: Fosters community engagement and additional learning
+- **How it works**: Threaded comments tied to specific stories with user attribution
+
+### Glossary
+- **What it does**: Provides definitions for technical terms and concepts
+- **Why it's important**: Serves as a quick reference and learning resource
+- **How it works**: Searchable database of terms with clear definitions
+
+## User Experience
+
+### User Personas
+1. **The Achiever**: Wants to share their coding wins and get recognition
+2. **The Learner**: Seeks inspiration and practical knowledge from others' experiences
+3. **The Tool Hunter**: Always looking for new tools to improve their workflow
+4. **The Community Builder**: Engages with others through comments and discussions
+
+### Key User Flows
+1. **Story Creation Flow**: Login → Create Story → Add Tools → Publish → Share
+2. **Discovery Flow**: Browse Stories → Filter by Tools/Tags → Read → Comment
+3. **Tool Exploration**: Browse Tools → Read Details → See Related Stories
+
+### UI/UX Considerations
+- Clean, modern interface using Tailwind CSS
+- Mobile-responsive design
+- Markdown editor with live preview
+- Easy tool tagging system
+- Clear navigation structure
+- Accessibility compliance
+
+## Technical Architecture
+
+### System Components
+- **Frontend**: Next.js with TypeScript
+- **Backend API**: Next.js API routes
+- **Database**: PostgreSQL with Prisma ORM
+- **Authentication**: NextAuth.js
+- **Styling**: Tailwind CSS
+- **State Management**: React hooks and context
+
+### Data Models
+```
+Users
+- id, email, password_hash, username
+- Profile fields: bio, experience_level, avatar
+- Timestamps: created_at, updated_at
+
+Success Stories
+- id, title, content, slug, optional_url
+- Relationships: user_id, tools (many-to-many)
+- Flags: featured
+- Timestamps: created_at, updated_at
+
+Tools
+- id, name, slug, description, icon, url, category
+- Timestamps: created_at, updated_at
+
+Comments
+- id, content
+- Relationships: user_id, story_id
+- Timestamps: created_at, updated_at
+
+Glossary
+- id, term, slug, definition
+- Timestamps: created_at, updated_at
+```
+
+### APIs and Integrations
+- RESTful API endpoints in Next.js
+- Authentication with NextAuth.js (supports OAuth providers)
+- Image upload handling with cloud storage (Cloudinary/S3)
+- Search functionality with database full-text search
+- Markdown processing with remark/rehype
+
+### Infrastructure Requirements
+- Node.js runtime
+- PostgreSQL database
+- File storage for images
+- Production hosting (Vercel recommended)
+- SSL certificate
+- CDN for static assets
+
+## Development Roadmap
+
+### MVP Phase 1: Core Platform
+- Custom authentication system with NextAuth.js
+- Basic user profiles and registration
+- Success story creation and display
+- Tool directory with basic CRUD
+- Comment functionality
+- Basic glossary
+
+### Phase 2: Enhanced Features
+- Advanced search and filtering
+- Rich user profiles with achievement badges
+- Story favoriting and bookmarking
+- Email notifications with nodemailer
+- Admin dashboard for content moderation
+- SEO optimization with Next.js features
+
+### Phase 3: Community Growth
+- User following system
+- Story recommendations algorithm
+- Weekly email digests
+- Public API for integrations
+- Analytics dashboard
+- Enhanced mobile experience
+
+### Phase 4: Monetization
+- Affiliate links integration
+- Premium membership features
+- Job board functionality
+- Sponsored content system
+- Course recommendations
+
+## Logical Dependency Chain
+
+### Foundation (Week 1)
+1. Next.js project setup with TypeScript
+2. PostgreSQL database setup with Prisma
+3. NextAuth.js authentication implementation
+4. Basic user model and registration
+
+### Core Content (Week 2)
+1. Success story model and API endpoints
+2. Tool directory implementation
+3. Comment system with proper authorization
+4. Markdown rendering setup
+
+### Frontend Implementation (Week 3)
+1. Layout components and navigation
+2. Story creation and display pages
+3. User profile pages
+4. Tool directory interface
+
+### Polish and Launch (Week 4)
+1. SEO optimization and metadata
+2. Performance optimization
+3. Production deployment
+4. Content seeding and testing
+
+## Risks and Mitigations
+
+### Technical Challenges
+- **Risk**: Building custom authentication from scratch
+- **Mitigation**: Use NextAuth.js for robust auth implementation
+- **Risk**: Complex database relationships
+- **Mitigation**: Use Prisma ORM for type-safe database operations
+- **Risk**: Performance with custom queries
+- **Mitigation**: Implement proper indexing and query optimization
+
+### MVP Scoping
+- **Risk**: Feature creep without CMS constraints
+- **Mitigation**: Strict MVP feature list and phased development
+- **Risk**: Admin interface complexity
+- **Mitigation**: Start with basic admin features, enhance iteratively
+
+### Resource Constraints
+- **Risk**: More custom development required
+- **Mitigation**: Use proven libraries and patterns
+- **Risk**: Security concerns with custom auth
+- **Mitigation**: Follow security best practices, use established libraries
+
+## Appendix
+
+### Technical Specifications
+- Next.js 14+ with App Router
+- TypeScript for type safety
+- Tailwind CSS for styling
+- PostgreSQL 14+
+- Prisma ORM
+- NextAuth.js for authentication
+- React Query for data fetching
+- Zod for validation
+
+### Research Findings
+- Developers value recognition for their achievements
+- Tool discovery is a common pain point
+- Community engagement increases with commenting features
+- Mobile usage is significant (40%+ of traffic)
+
+### Security Considerations
+- Password hashing with bcrypt
+- CSRF protection
+- SQL injection prevention via Prisma
+- XSS protection for user content
+- Rate limiting for API endpoints
+
+### Monetization Research
+- Affiliate programs (impact.com) for developer tools
+- Job board potential ($50-200 per listing)
+- Premium features adoption rate: 2-5% of users
+- Course recommendations (10-30% commission rates)

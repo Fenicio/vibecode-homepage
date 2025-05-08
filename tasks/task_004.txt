@@ -1,0 +1,11 @@
+# Task ID: 4
+# Title: Develop User Profile Management
+# Status: pending
+# Dependencies: 1, 2, 3
+# Priority: medium
+# Description: Create user profile pages and API endpoints for managing user data.
+# Details:
+Implement API routes for user CRUD operations. Build frontend pages for profile viewing and editing, including bio, experience level, and avatar upload (using Cloudinary/S3).
+
+# Test Strategy:
+Test profile creation, update, and avatar upload. Verify data persistence and UI responsiveness.

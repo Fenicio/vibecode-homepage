@@ -1,0 +1,11 @@
+# Task ID: 5
+# Title: Build Success Story Creation and Display
+# Status: pending
+# Dependencies: 1, 2, 3, 4
+# Priority: medium
+# Description: Implement markdown-based story creation, display, and linking to tools.
+# Details:
+Create API endpoints for story CRUD. Build a markdown editor with live preview (using remark/rehype). Allow users to tag tools and technologies. Display stories with proper formatting and tool links.
+
+# Test Strategy:
+Test story creation, editing, and display. Verify markdown rendering and tool tagging.
