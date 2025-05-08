@@ -1,0 +1,11 @@
+# Task ID: 11
+# Title: Implement user avatar and dropdown in header
+# Status: pending
+# Dependencies: None
+# Priority: medium
+# Description: Replace the placeholder in the Header component with a user avatar, display user email/name, and add a dropdown menu with profile and sign out options. Integrate with NextAuth.js session data.
+# Details:
+
+
+# Test Strategy:
+

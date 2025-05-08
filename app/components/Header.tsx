@@ -1,8 +1,10 @@
 import Image from 'next/image';
 
+import UserMenu from './UserMenu';
+
 export default function Header() {
     return (
-    <div className="relative w-[320px] h-[150px] mx-auto flex flex-col items-center justify-center">
+    <div className="relative w-[320px] h-[150px] mx-auto flex flex-col items-center justify-center mt-20">
       {/* SVG Arched Text */}
       <svg className="absolute w-full h-full" viewBox="0 0 320 150">
         {/* Arched "VIBE" on left */}

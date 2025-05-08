@@ -10,4 +10,34 @@ Install NextAuth.js, configure providers (e.g., Google, GitHub), and set up cust
 # Test Strategy:
 Test user registration, login, and logout. Verify OAuth provider integration and session management.
 
-# User log
+# Subtasks:
+## 1. Polish dropdown alignment and animation in Navbar [pending]
+### Dependencies: None
+### Description: Ensure the 'Features' dropdown in the Navbar opens directly below the trigger, does not overlap navigation, and animates smoothly. Adjust NavigationMenuContent class as needed.
+### Details:
+
+
+## 2. Refine Navbar spacing and responsiveness [pending]
+### Dependencies: None
+### Description: Tweak flex/grid settings, padding, and responsive styles to ensure the Navbar is well-spaced and looks good on all screen sizes. Test mobile sheet/sidebar behavior.
+### Details:
+
+
+## 3. Integrate full sign-in/user menu logic [pending]
+### Dependencies: None
+### Description: Connect the sign-in button to the full user menu/avatar logic, displaying user info and dropdown when authenticated. Replace placeholder avatar with real user data.
+### Details:
+
+
+## 4. Update brand/logo in Navbar [pending]
+### Dependencies: None
+### Description: Replace the 'Shadcn' brand in the Navbar with your own logo or branding as desired.
+### Details:
+
+
+## 5. Remove UserMenu from Header component [pending]
+### Dependencies: None
+### Description: Now that the user menu is in the Navbar, remove the <UserMenu /> from the Header component to avoid duplication.
+### Details:
+
+

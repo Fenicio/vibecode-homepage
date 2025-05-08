@@ -34,7 +34,53 @@
         2
       ],
       "status": "pending",
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": 1,
+          "title": "Polish dropdown alignment and animation in Navbar",
+          "description": "Ensure the 'Features' dropdown in the Navbar opens directly below the trigger, does not overlap navigation, and animates smoothly. Adjust NavigationMenuContent class as needed.",
+          "details": "",
+          "status": "pending",
+          "dependencies": [],
+          "parentTaskId": 3
+        },
+        {
+          "id": 2,
+          "title": "Refine Navbar spacing and responsiveness",
+          "description": "Tweak flex/grid settings, padding, and responsive styles to ensure the Navbar is well-spaced and looks good on all screen sizes. Test mobile sheet/sidebar behavior.",
+          "details": "",
+          "status": "pending",
+          "dependencies": [],
+          "parentTaskId": 3
+        },
+        {
+          "id": 3,
+          "title": "Integrate full sign-in/user menu logic",
+          "description": "Connect the sign-in button to the full user menu/avatar logic, displaying user info and dropdown when authenticated. Replace placeholder avatar with real user data.",
+          "details": "",
+          "status": "pending",
+          "dependencies": [],
+          "parentTaskId": 3
+        },
+        {
+          "id": 4,
+          "title": "Update brand/logo in Navbar",
+          "description": "Replace the 'Shadcn' brand in the Navbar with your own logo or branding as desired.",
+          "details": "",
+          "status": "pending",
+          "dependencies": [],
+          "parentTaskId": 3
+        },
+        {
+          "id": 5,
+          "title": "Remove UserMenu from Header component",
+          "description": "Now that the user menu is in the Navbar, remove the <UserMenu /> from the Header component to avoid duplication.",
+          "details": "",
+          "status": "pending",
+          "dependencies": [],
+          "parentTaskId": 3
+        }
+      ]
     },
     {
       "id": 4,
@@ -155,6 +201,39 @@
         9
       ],
       "status": "pending",
+      "subtasks": []
+    },
+    {
+      "id": 11,
+      "title": "Implement user avatar and dropdown in header",
+      "description": "Replace the placeholder in the Header component with a user avatar, display user email/name, and add a dropdown menu with profile and sign out options. Integrate with NextAuth.js session data.",
+      "details": "",
+      "testStrategy": "",
+      "status": "pending",
+      "dependencies": [],
+      "priority": "medium",
+      "subtasks": []
+    },
+    {
+      "id": 12,
+      "title": "Update favicon and page title",
+      "description": "Change the site's favicon to a custom image and update the page title to match the new branding. Ensure the changes are reflected across all pages.",
+      "details": "",
+      "testStrategy": "",
+      "status": "pending",
+      "dependencies": [],
+      "priority": "low",
+      "subtasks": []
+    },
+    {
+      "id": 13,
+      "title": "Fix and Style Theme Toggle Button for Responsive Navigation",
+      "description": "Ensure the theme toggle button functions correctly and is visually consistent across both mobile and desktop navigation bars.",
+      "details": "Audit the current theme toggle button implementation to identify and resolve any issues with toggling between light and dark modes, ensuring the state is correctly managed and persists across sessions (e.g., using localStorage). Refactor the toggle button component to use accessible markup (e.g., labeled checkbox or button) and ensure it triggers theme changes reliably. Update and unify the styling for the toggle button so it matches the design system and looks polished on both mobile and desktop navigation bars. Use responsive CSS and test with various screen sizes to guarantee proper alignment, spacing, and touch targets. Consider using SVG icons (e.g., sun/moon) for visual feedback, and ensure transitions are smooth. Verify that the toggle is accessible via keyboard and screen readers.",
+      "testStrategy": "Manually test the toggle button on both mobile and desktop views to confirm it switches themes as expected and persists the user's choice after reloads. Check that the button is styled consistently and remains accessible and usable at all viewport sizes. Use browser dev tools to simulate mobile devices and test touch interactions. Validate keyboard navigation and screen reader accessibility. Perform cross-browser testing to ensure consistent appearance and functionality. Optionally, write unit tests for the toggle logic and integration tests for theme persistence.",
+      "status": "pending",
+      "dependencies": [],
+      "priority": "high",
       "subtasks": []
     }
   ]

@@ -1,0 +1,11 @@
+# Task ID: 13
+# Title: Fix and Style Theme Toggle Button for Responsive Navigation
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Ensure the theme toggle button functions correctly and is visually consistent across both mobile and desktop navigation bars.
+# Details:
+Audit the current theme toggle button implementation to identify and resolve any issues with toggling between light and dark modes, ensuring the state is correctly managed and persists across sessions (e.g., using localStorage). Refactor the toggle button component to use accessible markup (e.g., labeled checkbox or button) and ensure it triggers theme changes reliably. Update and unify the styling for the toggle button so it matches the design system and looks polished on both mobile and desktop navigation bars. Use responsive CSS and test with various screen sizes to guarantee proper alignment, spacing, and touch targets. Consider using SVG icons (e.g., sun/moon) for visual feedback, and ensure transitions are smooth. Verify that the toggle is accessible via keyboard and screen readers.
+
+# Test Strategy:
+Manually test the toggle button on both mobile and desktop views to confirm it switches themes as expected and persists the user's choice after reloads. Check that the button is styled consistently and remains accessible and usable at all viewport sizes. Use browser dev tools to simulate mobile devices and test touch interactions. Validate keyboard navigation and screen reader accessibility. Perform cross-browser testing to ensure consistent appearance and functionality. Optionally, write unit tests for the toggle logic and integration tests for theme persistence.
