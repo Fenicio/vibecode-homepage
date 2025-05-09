@@ -9,3 +9,23 @@ Implement API routes for user CRUD operations. Build frontend pages for profile 
 
 # Test Strategy:
 Test profile creation, update, and avatar upload. Verify data persistence and UI responsiveness.
+
+# Subtasks:
+## 1. Implement User Profile API Endpoints [pending]
+### Dependencies: None
+### Description: Create RESTful API endpoints for user profile CRUD operations
+### Details:
+Develop backend routes for creating, reading, updating, and deleting user profiles. Include endpoints for handling basic profile information (name, email, bio), experience level tracking, and references to avatar images. Implement proper validation, error handling, and authentication checks for all endpoints. Structure the user profile schema to include all required fields mentioned in the parent task.
+
+## 2. Create Media Upload Service for Avatars [pending]
+### Dependencies: None
+### Description: Implement avatar upload functionality with cloud storage integration
+### Details:
+Build a service to handle image uploads for user avatars. Integrate with either Cloudinary or AWS S3 for image storage. Implement image validation, resizing, and optimization before upload. Create endpoints for uploading new avatars and deleting existing ones. Generate and store URLs to the uploaded images in the user profile database. Include security measures to prevent malicious file uploads.
+
+## 3. Develop User Profile Frontend Components [pending]
+### Dependencies: None
+### Description: Create frontend pages and components for viewing and editing user profiles
+### Details:
+Build responsive frontend components for profile viewing and editing. Create a profile view page displaying user information, experience level, and avatar. Implement an edit profile form with validation for all fields. Add avatar upload component with preview functionality and progress indicator. Ensure proper error handling and user feedback for all operations. Connect all components to the API endpoints created in the previous subtasks.
+

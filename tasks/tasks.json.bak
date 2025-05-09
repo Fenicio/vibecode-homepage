@@ -294,61 +294,7 @@
       "status": "pending",
       "dependencies": [],
       "priority": "high",
-      "subtasks": [
-        {
-          "id": 1,
-          "title": "Audit and Analyze Current Theme Toggle Implementation",
-          "description": "Review the existing theme toggle button code and behavior to identify issues with toggling, state management, accessibility, and visual consistency across mobile and desktop navigation bars.",
-          "dependencies": [],
-          "details": "Inspect the toggle button's logic for switching themes, how it stores and retrieves the theme state (e.g., localStorage), and its markup for accessibility. Document any inconsistencies or bugs, and note differences in appearance or behavior between mobile and desktop views.",
-          "status": "pending",
-          "testStrategy": "Manually test the toggle on both navigation bars, switching themes and reloading the page to check persistence. Use browser dev tools to simulate different screen sizes."
-        },
-        {
-          "id": 2,
-          "title": "Refactor Theme Toggle Logic and State Management",
-          "description": "Update the toggle button logic to ensure reliable theme switching, correct state management, and persistence across sessions, including syncing with system preferences.",
-          "dependencies": [
-            1
-          ],
-          "details": "Implement a robust toggle handler that updates the theme both in memory and in the DOM, and saves the preference in localStorage. Add event listeners to detect system theme changes and update the UI accordingly. Ensure the theme preference cascade is: localStorage > system setting > default.",
-          "status": "pending",
-          "testStrategy": "Test toggling themes, reloading the page, and changing system theme settings to verify correct behavior and persistence."
-        },
-        {
-          "id": 3,
-          "title": "Implement Accessible and Semantic Toggle Markup",
-          "description": "Refactor the toggle button to use accessible markup, such as a labeled button or checkbox, ensuring it is operable via keyboard and screen readers.",
-          "dependencies": [
-            2
-          ],
-          "details": "Use semantic HTML elements (e.g., <button> with aria-label or <input type='checkbox'> with a label). Ensure focus indicators are visible and ARIA attributes are set for screen reader compatibility. Add keyboard event handling for accessibility.",
-          "status": "pending",
-          "testStrategy": "Use keyboard navigation and screen readers to verify the toggle is accessible and properly announced."
-        },
-        {
-          "id": 4,
-          "title": "Unify and Polish Toggle Button Styling for Responsive Design",
-          "description": "Update and unify the toggle button's styling to match the design system and ensure visual consistency and usability across mobile and desktop navigation bars.",
-          "dependencies": [
-            3
-          ],
-          "details": "Apply responsive CSS for alignment, spacing, and touch targets (minimum 44x44px). Use SVG icons (e.g., sun/moon) for visual feedback and smooth transitions. Ensure the button looks polished and consistent in both navigation contexts.",
-          "status": "pending",
-          "testStrategy": "Test on various screen sizes and devices, checking alignment, touch area, and visual consistency."
-        },
-        {
-          "id": 5,
-          "title": "Verify Functionality, Responsiveness, and Accessibility",
-          "description": "Perform comprehensive testing to ensure the theme toggle works correctly, is visually consistent, and meets accessibility standards across all supported devices and navigation bars.",
-          "dependencies": [
-            4
-          ],
-          "details": "Test the toggle on both mobile and desktop, with different themes, and using assistive technologies. Validate keyboard navigation, screen reader output, and responsive behavior. Address any remaining issues.",
-          "status": "pending",
-          "testStrategy": "Conduct manual and automated accessibility tests, cross-device/browser checks, and user acceptance testing."
-        }
-      ]
+      "subtasks": []
     }
   ]
 }

@@ -1,10 +1,14 @@
 "use client";
 import { useSession, signIn, signOut } from 'next-auth/react';
 
-export default function UserMenu() {
+interface UserMenuProps {
+  absolute?: boolean;
+}
+
+export default function UserMenu({ absolute = true }: UserMenuProps) {
   const { data: session } = useSession();
   return (
-    <div className="absolute right-4 top-4 z-20">
+    <div className={absolute ? "absolute right-4 top-4 z-20" : "relative z-10"}>
       {session ? (
         <div className="flex items-center space-x-2">
           {/* TODO: Replace with user avatar and dropdown */}

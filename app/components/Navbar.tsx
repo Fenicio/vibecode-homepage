@@ -1,5 +1,5 @@
 "use client";
-import { ChevronsDown, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import React from "react";
 import {
   Sheet,
@@ -9,20 +9,16 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
-import { Separator } from "./ui/separator";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
 } from "./ui/navigation-menu";
-import { Button } from "./ui/button";
 import Link from "next/link";
-import Image from "next/image";
 import { ToggleTheme } from "./toogle-theme";
 import UserMenu from "./UserMenu";
+import { Separator } from "@radix-ui/react-separator";
 
 const routeList = [
   { href: "#testimonials", label: "Testimonials" },
@@ -96,6 +92,11 @@ export const Navbar = () => {
                 </NavigationMenu>
               </div>
             </div>
+            <SheetFooter className="flex-col sm:flex-col justify-start items-start">
+              <Separator className="mb-2" />
+
+              <ToggleTheme />
+            </SheetFooter>
           </SheetContent>
         </Sheet>
       </div>
@@ -119,7 +120,7 @@ export const Navbar = () => {
 
       <div className="hidden lg:flex items-center gap-2">
         <ToggleTheme />
-        <UserMenu />
+        <UserMenu absolute={false} />
       </div>
     </header>
   );

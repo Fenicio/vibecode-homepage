@@ -9,3 +9,23 @@ Create API endpoints for story CRUD. Build a markdown editor with live preview (
 
 # Test Strategy:
 Test story creation, editing, and display. Verify markdown rendering and tool tagging.
+
+# Subtasks:
+## 1. Implement Story CRUD API Endpoints [pending]
+### Dependencies: None
+### Description: Develop backend API endpoints to support creation, reading, updating, and deletion of success stories, including support for storing markdown content and associated tool/technology tags.
+### Details:
+Design and implement RESTful endpoints for story CRUD operations. Ensure the data model supports markdown content and an array of tool/technology tags. Validate input and handle errors appropriately. Document the API for frontend integration.
+
+## 2. Build Markdown Editor with Live Preview and Tagging [pending]
+### Dependencies: 5.1
+### Description: Create a frontend markdown editor component that allows users to write stories in markdown, preview the formatted output in real time, and tag relevant tools and technologies.
+### Details:
+Use libraries such as remark/rehype or marked to parse markdown and render a live preview. Implement a user-friendly editor interface with syntax highlighting and a tagging UI for tools/technologies. Ensure the editor can save and load drafts via the API.
+
+## 3. Display Stories with Proper Formatting and Tool Links [pending]
+### Dependencies: 5.2
+### Description: Develop the frontend components to display saved stories with rendered markdown, formatted output, and clickable links to tagged tools and technologies.
+### Details:
+Fetch stories from the API and render them using a markdown renderer that supports all required formatting. For each tagged tool/technology, display a clickable link (to a tool detail page or external resource). Ensure accessibility and responsive design.
+
