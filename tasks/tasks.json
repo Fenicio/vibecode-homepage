@@ -360,6 +360,17 @@
       "dependencies": [],
       "priority": "medium",
       "subtasks": []
+    },
+    {
+      "id": 15,
+      "title": "Implement Tools and Success Stories CRUD UI in Next.js",
+      "description": "Build the remaining CRUD (Create, Read, Update, Delete) user interfaces for the Tools and Success Stories resources, including index, detail, create, and edit pages, using Next.js and Prisma for data access.",
+      "details": "Develop Next.js pages for Tools and Success Stories resources to support full CRUD operations. For each resource, implement:\n- Index page: Lists all items with links to detail, edit, and create pages.\n- Detail page: Displays all fields for a single item, with options to edit or delete.\n- Create page: Form to add a new item, validating input and submitting via the existing API endpoints.\n- Edit page: Form to update an existing item, pre-filled with current data, submitting changes via the API.\nEnsure all pages use Prisma for data fetching and mutations, and that Read (GET) endpoints remain public. Follow established UI patterns from the Glossary resource for consistency. Integrate error handling, loading states, and success feedback. Coordinate with the design system to maintain visual consistency, especially if recent neobrutalism styles have been applied. Glossary UI is already complete except for the edit page, so focus only on Tools and Success Stories.",
+      "testStrategy": "Verify that for both Tools and Success Stories, users can view lists, see details, create new entries, and edit existing ones through the UI. Confirm that all forms validate input and display errors appropriately. Test that data is correctly fetched and mutated via Prisma and the API. Ensure Read (GET) pages are accessible without authentication. Check for consistent styling and user experience with the Glossary UI. Perform manual and automated tests for all CRUD flows, including edge cases such as empty states and API errors.",
+      "status": "pending",
+      "dependencies": [],
+      "priority": "high",
+      "subtasks": []
     }
   ]
 }
