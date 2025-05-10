@@ -9,7 +9,7 @@ import { SuccessStories } from './components/marketing/success-stories';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen">
       <div className="flex justify-center py-12">
         <Header />
       </div>
@@ -26,7 +26,7 @@ export default function Home() {
           <SuccessStories />
         </div>
       </main>
-    <footer className="w-full py-6 text-center text-sm text-gray-500 dark:text-gray-400 mt-12">
+    <footer className="w-full py-6 text-center text-sm mt-12">
       made by <a href="https://www.guiom.dev" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600 dark:hover:text-blue-400">Guiom</a> with love and tons of impostor syndrome
     </footer>
     </div>
