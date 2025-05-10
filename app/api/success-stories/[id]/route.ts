@@ -1,24 +1,26 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
 // GET /api/success-stories/[id]
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
-  const item = await prisma.success_stories.findUnique({ where: { id: Number(params.id) } });
-  if (!item) return NextResponse.json({ error: 'Not found' }, { status: 404 });
-  return NextResponse.json(item);
+export async function GET(request: Request, { params }: { params: Promise<{id: string}>}) {
+  const { id } = await params;
+  const story = await prisma.success_stories.findUnique({ where: { id: Number(id) } });
+  return NextResponse.json(story);
 }
 
 // PUT /api/success-stories/[id]
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
-  const data = await req.json();
-  const updated = await prisma.success_stories.update({ where: { id: Number(params.id) }, data });
+export async function PUT(request: Request, { params }: { params: Promise<{id: string}>}) {
+  const { id } = await params;
+  const data = await request.json();
+  const updated = await prisma.success_stories.update({ where: { id: Number(id) }, data });
   return NextResponse.json(updated);
 }
 
 // DELETE /api/success-stories/[id]
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
-  await prisma.success_stories.delete({ where: { id: Number(params.id) } });
+export async function DELETE(request: Request, { params }: { params: Promise<{id: string}>}) {
+  const { id } = await params;
+  await prisma.success_stories.delete({ where: { id: Number(id) } });
   return NextResponse.json({ success: true });
 }
