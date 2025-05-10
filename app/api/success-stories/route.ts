@@ -4,14 +4,23 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 // GET /api/success-stories
-export async function GET() {
-  const stories = await prisma.success_stories.findMany();
-  return NextResponse.json(stories);
+export async function GET(request: Request, { params }: { params: Promise<{id: string}>}) {
+  const { id } = await params;
+  const story = await prisma.success_stories.findUnique({ where: { id: Number(id) } });
+  return NextResponse.json(story);
 }
 
-// POST /api/success-stories
-export async function POST(request: Request) {
+// PUT /api/success-stories/[id]
+export async function PUT(request: Request, { params }: { params: Promise<{id: string}>}) {
+  const { id } = await params;
   const data = await request.json();
-  const created = await prisma.success_stories.create({ data });
-  return NextResponse.json(created, { status: 201 });
+  const updated = await prisma.success_stories.update({ where: { id: Number(id) }, data });
+  return NextResponse.json(updated);
+}
+
+// DELETE /api/success-stories/[id]
+export async function DELETE(request: Request, { params }: { params: Promise<{id: string}>}) {
+  const { id } = await params;
+  await prisma.success_stories.delete({ where: { id: Number(id) } });
+  return NextResponse.json({ success: true });
 }
