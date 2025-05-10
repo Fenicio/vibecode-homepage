@@ -1,5 +1,6 @@
 "use client";
 import { useSession, signIn, signOut } from 'next-auth/react';
+import Image from 'next/image';
 import { Button } from "./ui/button";
 import {
   DropdownMenu,
@@ -34,7 +35,13 @@ export default function UserMenu({ absolute = true }: UserMenuProps) {
             <button className="flex items-center space-x-2 focus:outline-none">
               {/* User avatar or initials */}
               {session.user?.image ? (
-                <img src={session.user.image} alt="avatar" className="w-8 h-8 rounded-full" />
+                <Image
+                  src={session.user.image}
+                  alt="avatar"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8 rounded-full"
+                />
               ) : (
                 <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 font-bold">
                   {session.user?.name?.[0] || session.user?.email?.[0] || "?"}

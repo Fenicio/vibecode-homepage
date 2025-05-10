@@ -20,7 +20,7 @@ import {
 export type ComboBoxOption = {
   value: string
   label: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 type ComboBoxProps = {

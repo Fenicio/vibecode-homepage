@@ -27,22 +27,6 @@ const routeList = [
   { href: "#faq", label: "FAQ" },
 ];
 
-const featureList = [
-  {
-    title: "Showcase Your Value ",
-    description: "Highlight how your product solves user problems.",
-  },
-  {
-    title: "Build Trust",
-    description:
-      "Leverages social proof elements to establish trust and credibility.",
-  },
-  {
-    title: "Capture Leads",
-    description:
-      "Make your lead capture form visually appealing and strategically.",
-  },
-];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);

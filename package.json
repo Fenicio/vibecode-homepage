@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "next test",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@lexical/react": "^0.31.0",
@@ -44,6 +46,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
+    "husky": "^8.0.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
