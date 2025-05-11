@@ -11,7 +11,8 @@ const compat = new FlatCompat({
 
 export default [
   {
-    ignores: ["lib/generated/**", "app/lib/generated/**"]
+    ignores: ["lib/generated/**", "app/lib/generated/**", "app/lib/prisma/**"]
   },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
 ];
+ 
