@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "next test",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@lexical/react": "^0.31.0",
