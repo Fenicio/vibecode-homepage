@@ -1,6 +1,6 @@
 # Task ID: 15
 # Title: Implement Tools and Success Stories CRUD UI in Next.js
-# Status: pending
+# Status: in-progress
 # Dependencies: None
 # Priority: high
 # Description: Build the remaining CRUD (Create, Read, Update, Delete) user interfaces for the Tools and Success Stories resources, including index, detail, create, and edit pages, using Next.js and Prisma for data access.
@@ -14,3 +14,35 @@ Ensure all pages use Prisma for data fetching and mutations, and that Read (GET)
 
 # Test Strategy:
 Verify that for both Tools and Success Stories, users can view lists, see details, create new entries, and edit existing ones through the UI. Confirm that all forms validate input and display errors appropriately. Test that data is correctly fetched and mutated via Prisma and the API. Ensure Read (GET) pages are accessible without authentication. Check for consistent styling and user experience with the Glossary UI. Perform manual and automated tests for all CRUD flows, including edge cases such as empty states and API errors.
+
+# Subtasks:
+## 1. Set Up Data Models and API Endpoints for Tools and Success Stories [pending]
+### Dependencies: None
+### Description: Define Prisma models for Tools and Success Stories if not already present, and ensure all necessary Next.js API routes (CRUD) are implemented for both resources.
+### Details:
+Review existing Prisma schema and add or update models for Tools and Success Stories. Implement or verify Next.js API routes for create, read (list and detail), update, and delete operations for each resource, following the established patterns. Ensure endpoints are accessible and return appropriate responses.
+
+## 2. Implement Index Pages for Tools and Success Stories [pending]
+### Dependencies: 15.1
+### Description: Create Next.js pages that list all Tools and all Success Stories, each with links to detail, edit, and create pages.
+### Details:
+For each resource, build an index page using server-side data fetching with Prisma to retrieve all items. Display items in a table or list, including action links/buttons for viewing details, editing, and creating new entries. Follow the UI patterns established in the Glossary resource for consistency.
+
+## 3. Develop Detail Pages with Edit and Delete Options [pending]
+### Dependencies: 15.2
+### Description: Build detail pages for Tools and Success Stories that display all fields for a single item, with options to edit or delete.
+### Details:
+For each resource, implement a detail page that fetches and displays all relevant fields for a selected item. Include buttons or links to edit or delete the item. Integrate confirmation dialogs for deletions and handle errors and loading states. Ensure the UI matches the design system and Glossary patterns.
+
+## 4. Create and Edit Forms with Validation and API Integration [pending]
+### Dependencies: 15.3
+### Description: Implement create and edit pages for both resources, featuring forms with input validation and submission via API endpoints.
+### Details:
+For each resource, build a create page with a form to add new items and an edit page with a pre-filled form for updating existing items. Use client-side validation and submit data to the appropriate API endpoints. Display success and error feedback, and ensure forms follow the established UI and validation patterns.
+
+## 5. Integrate Design System and Enhance User Experience [pending]
+### Dependencies: 15.4
+### Description: Apply the latest design system styles, including neobrutalism if used, and ensure consistent error handling, loading states, and success feedback across all CRUD pages.
+### Details:
+Review all CRUD pages for both resources to ensure visual and interaction consistency with the design system and Glossary resource. Integrate loading indicators, error messages, and success notifications. Refactor components as needed to maintain code quality and reusability.
+

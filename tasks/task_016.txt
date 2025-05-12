@@ -1,0 +1,11 @@
+# Task ID: 16
+# Title: Redesign and Enhance Footer with Links, Logo, Social Media, and Legal Info
+# Status: pending
+# Dependencies: None
+# Priority: medium
+# Description: Revamp the site footer to include navigation links, the company logo, social media icons, and comprehensive legal information, ensuring it is visually appealing and consistent across all pages.
+# Details:
+Create a new or update the existing Footer React component in the shared layout so it appears on every page. Add clearly organized navigation links (e.g., About, Contact, Privacy Policy, Terms of Service), the company logo (SVG or optimized image), and a set of social media icons (e.g., Twitter, LinkedIn, GitHub) with accessible links. Include legal information such as copyright notice with the current year, privacy policy, and terms of service. Ensure the footer is responsive, visually aligned with the neobrutalism design system, and accessible (proper contrast, keyboard navigation, alt text for images). Use semantic HTML (e.g., <footer>, <nav>, <ul>) and ensure all links open in new tabs where appropriate. Integrate the footer into the main layout file so it renders consistently across the application. Consider using a configuration file or CMS for dynamic link management if future updates are anticipated.
+
+# Test Strategy:
+Verify the footer appears on every page and contains all required elements: navigation links, logo, social media icons, and legal information. Check that all links are functional and open in the correct context (internal vs. external). Confirm the logo and icons render correctly and have appropriate alt text. Test responsiveness across devices and browsers. Validate accessibility using tools like axe or Lighthouse (focus, contrast, screen reader labels). Ensure the footer matches the neobrutalism design guidelines and is visually consistent with the rest of the site. Review for semantic HTML structure and proper ARIA attributes where needed.

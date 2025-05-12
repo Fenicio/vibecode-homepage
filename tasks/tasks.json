@@ -367,9 +367,74 @@
       "description": "Build the remaining CRUD (Create, Read, Update, Delete) user interfaces for the Tools and Success Stories resources, including index, detail, create, and edit pages, using Next.js and Prisma for data access.",
       "details": "Develop Next.js pages for Tools and Success Stories resources to support full CRUD operations. For each resource, implement:\n- Index page: Lists all items with links to detail, edit, and create pages.\n- Detail page: Displays all fields for a single item, with options to edit or delete.\n- Create page: Form to add a new item, validating input and submitting via the existing API endpoints.\n- Edit page: Form to update an existing item, pre-filled with current data, submitting changes via the API.\nEnsure all pages use Prisma for data fetching and mutations, and that Read (GET) endpoints remain public. Follow established UI patterns from the Glossary resource for consistency. Integrate error handling, loading states, and success feedback. Coordinate with the design system to maintain visual consistency, especially if recent neobrutalism styles have been applied. Glossary UI is already complete except for the edit page, so focus only on Tools and Success Stories.",
       "testStrategy": "Verify that for both Tools and Success Stories, users can view lists, see details, create new entries, and edit existing ones through the UI. Confirm that all forms validate input and display errors appropriately. Test that data is correctly fetched and mutated via Prisma and the API. Ensure Read (GET) pages are accessible without authentication. Check for consistent styling and user experience with the Glossary UI. Perform manual and automated tests for all CRUD flows, including edge cases such as empty states and API errors.",
-      "status": "pending",
+      "status": "in-progress",
       "dependencies": [],
       "priority": "high",
+      "subtasks": [
+        {
+          "id": 1,
+          "title": "Set Up Data Models and API Endpoints for Tools and Success Stories",
+          "description": "Define Prisma models for Tools and Success Stories if not already present, and ensure all necessary Next.js API routes (CRUD) are implemented for both resources.",
+          "dependencies": [],
+          "details": "Review existing Prisma schema and add or update models for Tools and Success Stories. Implement or verify Next.js API routes for create, read (list and detail), update, and delete operations for each resource, following the established patterns. Ensure endpoints are accessible and return appropriate responses.",
+          "status": "pending",
+          "testStrategy": "Test API endpoints using Postman or similar tools to verify all CRUD operations work as expected for both resources."
+        },
+        {
+          "id": 2,
+          "title": "Implement Index Pages for Tools and Success Stories",
+          "description": "Create Next.js pages that list all Tools and all Success Stories, each with links to detail, edit, and create pages.",
+          "dependencies": [
+            1
+          ],
+          "details": "For each resource, build an index page using server-side data fetching with Prisma to retrieve all items. Display items in a table or list, including action links/buttons for viewing details, editing, and creating new entries. Follow the UI patterns established in the Glossary resource for consistency.",
+          "status": "pending",
+          "testStrategy": "Verify that all items are listed, links navigate correctly, and loading/error states are handled."
+        },
+        {
+          "id": 3,
+          "title": "Develop Detail Pages with Edit and Delete Options",
+          "description": "Build detail pages for Tools and Success Stories that display all fields for a single item, with options to edit or delete.",
+          "dependencies": [
+            2
+          ],
+          "details": "For each resource, implement a detail page that fetches and displays all relevant fields for a selected item. Include buttons or links to edit or delete the item. Integrate confirmation dialogs for deletions and handle errors and loading states. Ensure the UI matches the design system and Glossary patterns.",
+          "status": "pending",
+          "testStrategy": "Test navigation from index to detail, verify data display, and confirm edit/delete actions work and provide feedback."
+        },
+        {
+          "id": 4,
+          "title": "Create and Edit Forms with Validation and API Integration",
+          "description": "Implement create and edit pages for both resources, featuring forms with input validation and submission via API endpoints.",
+          "dependencies": [
+            3
+          ],
+          "details": "For each resource, build a create page with a form to add new items and an edit page with a pre-filled form for updating existing items. Use client-side validation and submit data to the appropriate API endpoints. Display success and error feedback, and ensure forms follow the established UI and validation patterns.",
+          "status": "pending",
+          "testStrategy": "Test form validation, successful submissions, error handling, and that data updates are reflected in the index and detail pages."
+        },
+        {
+          "id": 5,
+          "title": "Integrate Design System and Enhance User Experience",
+          "description": "Apply the latest design system styles, including neobrutalism if used, and ensure consistent error handling, loading states, and success feedback across all CRUD pages.",
+          "dependencies": [
+            4
+          ],
+          "details": "Review all CRUD pages for both resources to ensure visual and interaction consistency with the design system and Glossary resource. Integrate loading indicators, error messages, and success notifications. Refactor components as needed to maintain code quality and reusability.",
+          "status": "pending",
+          "testStrategy": "Perform UI/UX review, cross-browser testing, and accessibility checks. Validate that all feedback mechanisms and styles are consistent."
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Redesign and Enhance Footer with Links, Logo, Social Media, and Legal Info",
+      "description": "Revamp the site footer to include navigation links, the company logo, social media icons, and comprehensive legal information, ensuring it is visually appealing and consistent across all pages.",
+      "details": "Create a new or update the existing Footer React component in the shared layout so it appears on every page. Add clearly organized navigation links (e.g., About, Contact, Privacy Policy, Terms of Service), the company logo (SVG or optimized image), and a set of social media icons (e.g., Twitter, LinkedIn, GitHub) with accessible links. Include legal information such as copyright notice with the current year, privacy policy, and terms of service. Ensure the footer is responsive, visually aligned with the neobrutalism design system, and accessible (proper contrast, keyboard navigation, alt text for images). Use semantic HTML (e.g., <footer>, <nav>, <ul>) and ensure all links open in new tabs where appropriate. Integrate the footer into the main layout file so it renders consistently across the application. Consider using a configuration file or CMS for dynamic link management if future updates are anticipated.",
+      "testStrategy": "Verify the footer appears on every page and contains all required elements: navigation links, logo, social media icons, and legal information. Check that all links are functional and open in the correct context (internal vs. external). Confirm the logo and icons render correctly and have appropriate alt text. Test responsiveness across devices and browsers. Validate accessibility using tools like axe or Lighthouse (focus, contrast, screen reader labels). Ensure the footer matches the neobrutalism design guidelines and is visually consistent with the rest of the site. Review for semantic HTML structure and proper ARIA attributes where needed.",
+      "status": "pending",
+      "dependencies": [],
+      "priority": "medium",
       "subtasks": []
     }
   ]
