@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
+import prisma from '@/lib/prisma';
+import { requireAuth } from '@/lib/auth';
 
 // GET /api/tools/[id]
 export async function GET(req: NextRequest, { params }: { params: Promise<{id: string}>}) {
@@ -11,6 +12,11 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{id: s
 
 // PUT /api/tools/[id]
 export async function PUT(req: NextRequest, { params }: { params: Promise<{id: string}>}) {
+  const auth = await requireAuth();
+  if (!auth.authenticated) {
+    return auth.response;
+  }
+
   const { id } = await params;
   const data = await req.json();
   const updated = await prisma.tools.update({ where: { id: Number(id) }, data });
@@ -19,6 +25,11 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{id: s
 
 // DELETE /api/tools/[id]
 export async function DELETE(req: NextRequest, { params }: { params: Promise<{id: string}>}) {
+  const auth = await requireAuth();
+  if (!auth.authenticated) {
+    return auth.response;
+  }
+
   const { id } = await params;
   await prisma.tools.delete({ where: { id: Number(id) } });
   return NextResponse.json({ success: true });

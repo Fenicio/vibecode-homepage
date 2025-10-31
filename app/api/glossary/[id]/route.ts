@@ -1,5 +1,6 @@
 import {  NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
+import prisma from '@/lib/prisma';
+import { requireAuth } from '@/lib/auth';
 
 // GET /api/glossary/[id]
 export async function GET(request: Request, { params }: { params: Promise<{id: string}>}) {
@@ -11,6 +12,11 @@ export async function GET(request: Request, { params }: { params: Promise<{id: s
 
 // PUT /api/glossary/[id]
 export async function PUT(request: Request, { params }: { params: Promise<{id: string}>}) {
+  const auth = await requireAuth();
+  if (!auth.authenticated) {
+    return auth.response;
+  }
+
   const { id } = await params;
   const data = await request.json();
   const updated = await prisma.glossary.update({ where: { id: Number(id) }, data });
@@ -19,6 +25,11 @@ export async function PUT(request: Request, { params }: { params: Promise<{id: s
 
 // DELETE /api/glossary/[id]
 export async function DELETE(request: Request, { params }: { params: Promise<{id: string}>}) {
+  const auth = await requireAuth();
+  if (!auth.authenticated) {
+    return auth.response;
+  }
+
   const { id } = await params;
   await prisma.glossary.delete({ where: { id: Number(id) } });
   return NextResponse.json({ success: true });

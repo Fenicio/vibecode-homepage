@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import Comments from "@/components/Comments";
 
 export default function SuccessStoryDetailPage() {
   const params = useParams();
@@ -41,6 +42,8 @@ export default function SuccessStoryDetailPage() {
       >Delete</button>
       <br />
       <Link href="/success-stories" className="inline-block mt-4">Back to Success Stories</Link>
+
+      <Comments storyId={parseInt(id)} />
     </main>
   );
 }

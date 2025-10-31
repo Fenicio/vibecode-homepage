@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import WrapProviders from "./components/WrapProviders";
 import { Navbar } from "./components/Navbar"; // Add Navbar import
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// Commented out due to network restrictions - using system fonts instead
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 export const metadata: Metadata = {
-  title: "How To Vibe Dev",
-  description: "How To Vibe Dev",
+  title: "VibeCode - Developer Community",
+  description: "Share your coding success stories, discover tools, and learn from the community",
 };
 
 export default function RootLayout({
@@ -26,9 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="antialiased font-sans">
         <WrapProviders>
           <Navbar />
           {children}
