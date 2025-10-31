@@ -10,12 +10,12 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/app/components/ui/command"
+} from "@/components/ui/command"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/app/components/ui/popover"
+} from "@/components/ui/popover"
 
 export type ComboBoxOption = {
   value: string

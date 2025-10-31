@@ -8,7 +8,7 @@ import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin'
 import { EditorState, SerializedEditorState } from 'lexical'
 
 import { editorTheme } from '@/components/editor/themes/editor-theme'
-import { TooltipProvider } from '@/app/components/ui/tooltip'
+import { TooltipProvider } from '@/components/ui/tooltip'
 
 import { nodes } from './nodes'
 import { Plugins } from './plugins'

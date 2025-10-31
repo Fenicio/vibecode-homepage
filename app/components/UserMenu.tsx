@@ -7,7 +7,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem
-} from "../app/components/ui/dropdown-menu";
+} from "./ui/dropdown-menu";
 import { Separator } from "./ui/separator";
 import Link from "next/link";
 import { Plus } from "lucide-react";
@@ -18,7 +18,7 @@ import {
   DialogHeader,
   DialogFooter,
   DialogTitle
-} from "../app/components/ui/dialog";
+} from "./ui/dialog";
 import { Github } from "./icons/Github";
 
 interface UserMenuProps {
