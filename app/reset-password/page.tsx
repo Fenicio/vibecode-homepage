@@ -58,7 +58,7 @@ function ResetPasswordForm() {
           router.push("/signin");
         }, 2000);
       }
-    } catch (err) {
+    } catch {
       setError("Failed to reset password. Please try again.");
     } finally {
       setLoading(false);

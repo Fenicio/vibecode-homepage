@@ -34,7 +34,7 @@ function VerifyEmailForm() {
         } else {
           setMessage(data.message);
         }
-      } catch (err) {
+      } catch {
         setError("Failed to verify email. Please try again.");
       } finally {
         setLoading(false);
