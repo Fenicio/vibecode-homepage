@@ -1,10 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { useRequireAuth } from "@/hooks/useRequireAuth";
 
 export default function EditSuccessStoryPage() {
   const params = useParams();
   const router = useRouter();
+  const { isLoading: authLoading } = useRequireAuth();
   const { id } = params as { id: string };
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
@@ -54,7 +56,7 @@ export default function EditSuccessStoryPage() {
     }
   };
 
-  if (loading) return <main style={{ padding: 40 }}><p>Loading...</p></main>;
+  if (authLoading || loading) return <main style={{ padding: 40 }}><p>Loading...</p></main>;
 
   return (
     <main style={{ padding: 40 }}>

@@ -8,6 +8,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum UserRole {
+  USER
+  MODERATOR
+  ADMIN
+}
+
 model accounts {
   id                Int     @id @default(autoincrement())
   userId            Int
@@ -122,6 +128,7 @@ model users {
   bio                       String?
   experience_level          String?           @db.VarChar(50)
   avatar                    String?           @db.VarChar(255)
+  role                      UserRole          @default(USER)
   created_at                DateTime          @default(now()) @db.Timestamp(6)
   updated_at                DateTime          @default(now()) @db.Timestamp(6)
   githubid                  String?           @unique @db.VarChar(255)

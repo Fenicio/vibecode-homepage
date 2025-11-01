@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
-import { requireAuth } from '@/lib/auth';
+import { requireOwnershipOrModerator } from '@/lib/rbac';
 
 // GET /api/success-stories/[id]
 export async function GET(request: Request, { params }: { params: Promise<{id: string}>}) {
@@ -11,25 +11,37 @@ export async function GET(request: Request, { params }: { params: Promise<{id: s
 
 // PUT /api/success-stories/[id]
 export async function PUT(request: Request, { params }: { params: Promise<{id: string}>}) {
-  const auth = await requireAuth();
-  if (!auth.authenticated) {
-    return auth.response;
+  const { id } = await params;
+  const resourceId = Number(id);
+
+  // Check authentication and ownership
+  const { error, session } = await requireOwnershipOrModerator('success_stories', resourceId);
+  if (error) {
+    return error;
   }
 
-  const { id } = await params;
   const data = await request.json();
-  const updated = await prisma.success_stories.update({ where: { id: Number(id) }, data });
+  const updated = await prisma.success_stories.update({
+    where: { id: resourceId },
+    data: {
+      ...data,
+      updated_at: new Date(),
+    }
+  });
   return NextResponse.json(updated);
 }
 
 // DELETE /api/success-stories/[id]
 export async function DELETE(request: Request, { params }: { params: Promise<{id: string}>}) {
-  const auth = await requireAuth();
-  if (!auth.authenticated) {
-    return auth.response;
+  const { id } = await params;
+  const resourceId = Number(id);
+
+  // Check authentication and ownership
+  const { error, session } = await requireOwnershipOrModerator('success_stories', resourceId);
+  if (error) {
+    return error;
   }
 
-  const { id } = await params;
-  await prisma.success_stories.delete({ where: { id: Number(id) } });
+  await prisma.success_stories.delete({ where: { id: resourceId } });
   return NextResponse.json({ success: true });
 }

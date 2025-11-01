@@ -1,13 +1,24 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useRequireAuth } from "@/hooks/useRequireAuth";
 
 export default function NewGlossaryPage() {
   const router = useRouter();
+  const { isLoading: authLoading } = useRequireAuth();
   const [term, setTerm] = useState("");
   const [definition, setDefinition] = useState("");
   const [slug, setSlug] = useState("");
   const [error, setError] = useState("");
+
+  // Show loading state while checking authentication
+  if (authLoading) {
+    return (
+      <main style={{ padding: 40 }}>
+        <p>Loading...</p>
+      </main>
+    );
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();

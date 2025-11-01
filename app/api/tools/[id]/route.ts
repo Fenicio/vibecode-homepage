@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
-import { requireAuth } from '@/lib/auth';
+import { requireOwnershipOrModerator } from '@/lib/rbac';
 
 // GET /api/tools/[id]
 export async function GET(req: NextRequest, { params }: { params: Promise<{id: string}>}) {
@@ -10,27 +10,39 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{id: s
   return NextResponse.json(item);
 }
 
-// PUT /api/tools/[id]
+// PUT /api/tools/[id] - Requires MODERATOR role
 export async function PUT(req: NextRequest, { params }: { params: Promise<{id: string}>}) {
-  const auth = await requireAuth();
-  if (!auth.authenticated) {
-    return auth.response;
+  const { id } = await params;
+  const resourceId = Number(id);
+
+  // Check authentication and moderator role (tools have no user_id, so only moderators can edit)
+  const { error, session } = await requireOwnershipOrModerator('tools', resourceId);
+  if (error) {
+    return error;
   }
 
-  const { id } = await params;
   const data = await req.json();
-  const updated = await prisma.tools.update({ where: { id: Number(id) }, data });
+  const updated = await prisma.tools.update({
+    where: { id: resourceId },
+    data: {
+      ...data,
+      updated_at: new Date(),
+    }
+  });
   return NextResponse.json(updated);
 }
 
-// DELETE /api/tools/[id]
+// DELETE /api/tools/[id] - Requires MODERATOR role
 export async function DELETE(req: NextRequest, { params }: { params: Promise<{id: string}>}) {
-  const auth = await requireAuth();
-  if (!auth.authenticated) {
-    return auth.response;
+  const { id } = await params;
+  const resourceId = Number(id);
+
+  // Check authentication and moderator role (tools have no user_id, so only moderators can delete)
+  const { error, session } = await requireOwnershipOrModerator('tools', resourceId);
+  if (error) {
+    return error;
   }
 
-  const { id } = await params;
-  await prisma.tools.delete({ where: { id: Number(id) } });
+  await prisma.tools.delete({ where: { id: resourceId } });
   return NextResponse.json({ success: true });
 }

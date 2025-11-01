@@ -40,19 +40,16 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { getServerSession } = await import("next-auth");
-    const { authOptions } = await import("@/lib/auth-config");
-    const session = await getServerSession(authOptions);
-
-    if (!session || !session.user) {
-      return NextResponse.json(
-        { error: "Unauthorized - Please sign in" },
-        { status: 401 }
-      );
-    }
-
     const { id: idStr } = await params;
     const id = parseInt(idStr);
+
+    // Check authentication and ownership
+    const { requireOwnershipOrModerator } = await import("@/lib/rbac");
+    const { error, session } = await requireOwnershipOrModerator('comments', id);
+    if (error) {
+      return error;
+    }
+
     const body = await request.json();
     const { content } = body;
 
@@ -91,19 +88,16 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { getServerSession } = await import("next-auth");
-    const { authOptions } = await import("@/lib/auth-config");
-    const session = await getServerSession(authOptions);
-
-    if (!session || !session.user) {
-      return NextResponse.json(
-        { error: "Unauthorized - Please sign in" },
-        { status: 401 }
-      );
-    }
-
     const { id: idStr } = await params;
     const id = parseInt(idStr);
+
+    // Check authentication and ownership
+    const { requireOwnershipOrModerator } = await import("@/lib/rbac");
+    const { error, session } = await requireOwnershipOrModerator('comments', id);
+    if (error) {
+      return error;
+    }
+
     await prisma.comments.delete({
       where: { id },
     });

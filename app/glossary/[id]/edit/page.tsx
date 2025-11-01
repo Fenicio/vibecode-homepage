@@ -1,10 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { useRequireAuth } from "@/hooks/useRequireAuth";
 
 export default function EditGlossaryPage() {
   const params = useParams();
   const router = useRouter();
+  const { isLoading: authLoading } = useRequireAuth();
   const { id } = params as { id: string };
   const [term, setTerm] = useState("");
   const [definition, setDefinition] = useState("");
@@ -40,7 +42,7 @@ export default function EditGlossaryPage() {
     }
   }
 
-  if (loading) return <main style={{padding: 40}}><p>Loading...</p></main>;
+  if (authLoading || loading) return <main style={{padding: 40}}><p>Loading...</p></main>;
 
   return (
     <main style={{padding: 40}}>
