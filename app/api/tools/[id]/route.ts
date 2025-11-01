@@ -16,7 +16,7 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{id: s
   const resourceId = Number(id);
 
   // Check authentication and moderator role (tools have no user_id, so only moderators can edit)
-  const { error, session } = await requireOwnershipOrModerator('tools', resourceId);
+  const { error } = await requireOwnershipOrModerator('tools', resourceId);
   if (error) {
     return error;
   }
@@ -38,7 +38,7 @@ export async function DELETE(req: NextRequest, { params }: { params: Promise<{id
   const resourceId = Number(id);
 
   // Check authentication and moderator role (tools have no user_id, so only moderators can delete)
-  const { error, session } = await requireOwnershipOrModerator('tools', resourceId);
+  const { error } = await requireOwnershipOrModerator('tools', resourceId);
   if (error) {
     return error;
   }

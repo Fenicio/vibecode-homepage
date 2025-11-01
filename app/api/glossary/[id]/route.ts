@@ -16,7 +16,7 @@ export async function PUT(request: Request, { params }: { params: Promise<{id: s
   const resourceId = Number(id);
 
   // Check authentication and moderator role (glossary has no user_id, so only moderators can edit)
-  const { error, session } = await requireOwnershipOrModerator('glossary', resourceId);
+  const { error } = await requireOwnershipOrModerator('glossary', resourceId);
   if (error) {
     return error;
   }
@@ -38,7 +38,7 @@ export async function DELETE(request: Request, { params }: { params: Promise<{id
   const resourceId = Number(id);
 
   // Check authentication and moderator role (glossary has no user_id, so only moderators can delete)
-  const { error, session } = await requireOwnershipOrModerator('glossary', resourceId);
+  const { error } = await requireOwnershipOrModerator('glossary', resourceId);
   if (error) {
     return error;
   }

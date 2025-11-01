@@ -1,4 +1,4 @@
-import { getServerSession } from "next-auth";
+import { getServerSession, Session } from "next-auth";
 import { authOptions } from "@/lib/auth-config";
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
@@ -77,11 +77,11 @@ export async function requireRole(role: UserRole) {
 export async function requireOwnership(
   resourceType: "success_stories" | "glossary" | "tools" | "comments",
   resourceId: number,
-  session: any
+  session: Session
 ) {
   const userId = parseInt(session.user.id);
 
-  let resource: any;
+  let resource: { user_id: number | null } | null = null;
 
   switch (resourceType) {
     case "success_stories":

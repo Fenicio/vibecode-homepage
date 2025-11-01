@@ -45,7 +45,7 @@ export async function PUT(
 
     // Check authentication and ownership
     const { requireOwnershipOrModerator } = await import("@/lib/rbac");
-    const { error, session } = await requireOwnershipOrModerator('comments', id);
+    const { error } = await requireOwnershipOrModerator('comments', id);
     if (error) {
       return error;
     }
@@ -93,7 +93,7 @@ export async function DELETE(
 
     // Check authentication and ownership
     const { requireOwnershipOrModerator } = await import("@/lib/rbac");
-    const { error, session } = await requireOwnershipOrModerator('comments', id);
+    const { error } = await requireOwnershipOrModerator('comments', id);
     if (error) {
       return error;
     }
