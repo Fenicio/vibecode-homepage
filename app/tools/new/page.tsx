@@ -1,9 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useRequireAuth } from "@/hooks/useRequireAuth";
 
 export default function NewToolPage() {
   const router = useRouter();
+  const { isLoading: authLoading } = useRequireAuth();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [url, setUrl] = useState("");
@@ -12,6 +14,15 @@ export default function NewToolPage() {
   const [category, setCategory] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  // Show loading state while checking authentication
+  if (authLoading) {
+    return (
+      <main style={{ padding: 40 }}>
+        <p>Loading...</p>
+      </main>
+    );
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

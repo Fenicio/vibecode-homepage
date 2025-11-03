@@ -80,7 +80,7 @@ export const authOptions: AuthOptions = {
         });
 
         if (!existingUser) {
-          await prisma.users.create({
+          const newUser = await prisma.users.create({
             data: {
               email: user.email!,
               name: user.name,
@@ -88,14 +88,28 @@ export const authOptions: AuthOptions = {
               githubid: account.provider === "github" ? account.providerAccountId : null,
               password: "", // Empty password for OAuth users
               emailVerified: new Date(), // OAuth users are auto-verified
+              role: "USER", // Default role for new users
             },
           });
-        } else if (!existingUser.emailVerified) {
-          // Verify email for existing users who sign in via OAuth
-          await prisma.users.update({
-            where: { email: user.email! },
-            data: { emailVerified: new Date() },
-          });
+          token.role = newUser.role;
+        } else {
+          if (!existingUser.emailVerified) {
+            // Verify email for existing users who sign in via OAuth
+            await prisma.users.update({
+              where: { email: user.email! },
+              data: { emailVerified: new Date() },
+            });
+          }
+          token.role = existingUser.role;
+        }
+      } else if (user?.email) {
+        // For credentials provider, fetch role from database
+        const dbUser = await prisma.users.findUnique({
+          where: { email: user.email },
+          select: { role: true },
+        });
+        if (dbUser) {
+          token.role = dbUser.role;
         }
       }
       return token;
@@ -103,6 +117,7 @@ export const authOptions: AuthOptions = {
     async session({ session, token }) {
       if (session.user) {
         session.user.id = token.id as string;
+        session.user.role = token.role as string;
       }
       return session;
     },

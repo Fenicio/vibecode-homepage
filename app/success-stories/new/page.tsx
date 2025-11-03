@@ -1,13 +1,24 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useRequireAuth } from "@/hooks/useRequireAuth";
 
 export default function NewSuccessStoryPage() {
   const router = useRouter();
+  const { isLoading: authLoading } = useRequireAuth();
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  // Show loading state while checking authentication
+  if (authLoading) {
+    return (
+      <main style={{ padding: 40 }}>
+        <p>Loading...</p>
+      </main>
+    );
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
